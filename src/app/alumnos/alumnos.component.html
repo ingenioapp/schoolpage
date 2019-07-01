@@ -1,0 +1,105 @@
+<div class="main-content-container container-fluid px-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">Mi Escuelita</span>
+        <h3 class="page-title">Bienvenido a tu sesión</h3>
+        </div>
+    </div>
+    <!-- End Page Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar"
+    style="background-color: #f5f6f8 !important">
+        <div class="container d-flex align-items-center">
+            <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a pageScroll href="#inicio" class="nav-link pl-0 sinPadding">Inicio</a></li>
+                <li class="nav-item"><a pageScroll href="#nosotros" class="nav-link sinPadding">Historial Académico</a></li>
+                <li class="nav-item"><a pageScroll href="#precios" class="nav-link sinPadding">Pagos y actividades</a></li>
+                <li class="nav-item"><a pageScroll href="#contacto" class="nav-link sinPadding">Salir</a></li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Default Light Table -->
+    <div class="row">
+        <div class="col-lg-4">
+        <div class="card card-small mb-4 pt-3">
+            <div class="card-header border-bottom text-center">
+            <div class="mb-3 mx-auto">
+                <img class="rounded-circle" src="../../assets/images/avatars/0.jpg" alt="User Avatar" width="110"> </div>
+            <h4 class="mb-0">Flores Bautista Adriana Berenice</h4>
+            <span class="text-muted d-block mb-2">Computación</span>
+            
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item px-4">
+                <div class="progress-wrapper">
+                <strong class="text-muted d-block mb-2">Escolaridad</strong>
+                <div >
+                    <div>
+                        <b>Semestre: </b> <span>Primer semestre</span>
+                    </div>
+                    <div>
+                        <b>Matricula: </b> <span>7493284</span>
+                    </div>
+                </div>
+                </div>
+            </li>
+            <li class="list-group-item p-4">
+                <strong class="text-muted d-block mb-2">Description</strong>
+                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio eaque, quidem, commodi soluta qui quae minima obcaecati quod dolorum sint alias, possimus illum assumenda eligendi cumque?</span>
+            </li>
+            </ul>
+        </div>
+        </div>
+        <div class="col-lg-8">
+        <div class="card card-small mb-4">
+            <div class="card-header border-bottom">
+            <h6 class="m-0">Detalle de Asistencia</h6>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item p-3">
+                <div class="row">
+                    <div class="col">
+                        
+                        <div [ngSwitch]="view">
+                            <mwl-calendar-month-view
+                                *ngSwitchCase="CalendarView.Month"
+                                [viewDate]="viewDate"
+                                [events]="events"
+                                [refresh]="refresh"
+                                [activeDayIsOpen]="activeDayIsOpen"
+                                (dayClicked)="dayClicked($event.day)"
+                                (eventClicked)="handleEvent('Clicked', $event.event)"
+                                (eventTimesChanged)="eventTimesChanged($event)"
+                            >
+                            </mwl-calendar-month-view>
+                            <mwl-calendar-week-view
+                                *ngSwitchCase="CalendarView.Week"
+                                [viewDate]="viewDate"
+                                [events]="events"
+                                [refresh]="refresh"
+                                (eventClicked)="handleEvent('Clicked', $event.event)"
+                                (eventTimesChanged)="eventTimesChanged($event)"
+                            >
+                            </mwl-calendar-week-view>
+                            <mwl-calendar-day-view
+                                *ngSwitchCase="CalendarView.Day"
+                                [viewDate]="viewDate"
+                                [events]="events"
+                                [refresh]="refresh"
+                                (eventClicked)="handleEvent('Clicked', $event.event)"
+                                (eventTimesChanged)="eventTimesChanged($event)">
+                            </mwl-calendar-day-view>
+                        </div> 
+
+                    </div>
+                </div>
+            </li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    <!-- End Default Light Table -->
+    </div>
